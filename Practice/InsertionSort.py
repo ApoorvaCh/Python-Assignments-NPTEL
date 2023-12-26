@@ -13,12 +13,10 @@ def insertion_sort(arr: list) -> list:
     """
 
     for i in range(len(arr)):
-        for j in range(i):
-            if(arr[j] >= arr[i]):
-                ele = arr[i]
-                arr.remove(ele)
-                arr.insert(j, ele)
-                break
+        pos = i
+        while pos > 0 and arr[pos] < arr[pos-1]:
+            (arr[pos], arr[pos-1]) = (arr[pos-1], arr[pos])
+            pos = pos-1
     return arr
 
 
